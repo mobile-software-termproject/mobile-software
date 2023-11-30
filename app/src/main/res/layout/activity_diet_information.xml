@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/DietInformation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="Diet Information"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:weightSum="4"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+
+        <TextView
+            android:id="@+id/restaurantTextName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/restaurantTextView"
+            android:layout_weight="1"
+            android:shadowColor="#FF80AB"
+            android:text="Restaurant: "
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/restaurantTextView"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_marginTop="8dp"
+            android:text="RestaurantView"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:weightSum="4"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+        <TextView
+            android:id="@+id/dietNameTextName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Diet Name: "
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dietNameTextView"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Diet NameView"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:weightSum="4"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+        <TextView
+            android:id="@+id/dateTextName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Date: "
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="DateTextView"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:weightSum="4"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+        <TextView
+            android:id="@+id/timeTextName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Time: "
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/timeTextView"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="timeTextView"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="380dp"
+        android:weightSum="4"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+        <TextView
+            android:id="@+id/costTextName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Cost: "
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/costTextView"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="CostTextView"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="380dp"
+        android:weightSum="4"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp">
+        <TextView
+            android:id="@+id/caloriesTextName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Calories: "
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/caloriesTextView"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="CaloriesTextView"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="380dp"
+        android:weightSum="4"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/reviewTextName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Review: "
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/reviewTextView"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ReviewTextView"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>
