@@ -20,6 +20,7 @@ import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -56,7 +57,9 @@ public class AteCalendarForShowing extends AppCompatActivity {
             CalendarDay calendarDay = CalendarDay.from(date);
             calendarDays.add(calendarDay);
         }
-        float[] hsv = {255.0f, 128.0f, 171.0f};
+        //달력 밑에 바 형태로 표시 할거 색상(material CalendarView)
+        float[] hsv = new float[3];
+        Color.RGBToHSV(74,146,255,hsv);
         materialCalendarView.addDecorator(new EventDecorator(Color.HSVToColor(hsv), calendarDays));
 
         Cursor cursor = getDataFromDatabase();

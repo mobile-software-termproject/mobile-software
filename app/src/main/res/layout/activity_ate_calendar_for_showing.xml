@@ -16,38 +16,43 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:mcv_arrowColor="#FFA880"
+      app:mcv_selectionColor="#A0BDDA"
+      app:mcv_arrowColor="#409AF4"
       app:mcv_showOtherDates="all"
       tools:ignore="MissingConstraints" />
 
-  <!-- 식단 정보를 표시할 텍스트뷰 -->
+  <!-- 선택된 날짜를 표시할 텍스트뷰 -->
+
   <TextView
       android:id="@+id/textView6"
-      android:layout_width="252dp"
-      android:layout_height="50dp"
+      android:layout_width="423dp"
+      android:layout_height="63dp"
       android:layout_marginStart="79dp"
-      android:layout_marginTop="16dp"
       android:layout_marginEnd="80dp"
-      android:layout_marginBottom="22dp"
+      android:background="#D50000"
       android:gravity="center"
       android:text="@string/AteDietCalendar"
+      android:textColor="#FDFCFC"
       android:textSize="20sp"
       android:textStyle="bold"
       app:layout_constraintBottom_toTopOf="@+id/materialCalendarView"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.0" />
 
-  <!-- 선택된 날짜를 표시할 텍스트뷰 -->
   <TextView
-        android:id="@+id/selectedDay"
+      android:id="@+id/selectedDay"
       android:layout_width="120dp"
       android:layout_height="23dp"
       android:layout_marginStart="25dp"
       android:layout_marginTop="12dp"
       android:layout_weight="1"
       android:gravity="center"
+      android:text="선택 날짜"
       android:textSize="16sp"
+      android:textStyle="bold"
       app:layout_constraintEnd_toStartOf="@+id/textView13"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/materialCalendarView" />
@@ -108,14 +113,16 @@
       app:layout_constraintTop_toBottomOf="@+id/totalCalories" />
 
   <!-- 식단 정보를 표시할 텍스트뷰들 -->
+
   <TextView
       android:id="@+id/textView13"
-      android:layout_width="90dp"
-      android:layout_height="wrap_content"
+      android:layout_width="100dp"
+      android:layout_height="20dp"
       android:layout_marginStart="50dp"
       android:layout_marginTop="12dp"
       android:gravity="right"
       android:text="Total Calories:"
+      android:textStyle="bold"
       app:layout_constraintEnd_toStartOf="@+id/totalCalories"
       app:layout_constraintStart_toEndOf="@+id/selectedDay"
       app:layout_constraintTop_toBottomOf="@+id/materialCalendarView" />
@@ -129,6 +136,7 @@
       android:layout_marginEnd="26dp"
       android:gravity="center"
       android:text="TextView"
+      android:textStyle="bold"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toEndOf="@+id/textView13"
       app:layout_constraintTop_toBottomOf="@+id/materialCalendarView" />

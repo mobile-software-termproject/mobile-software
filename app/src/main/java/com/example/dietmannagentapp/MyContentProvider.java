@@ -9,8 +9,7 @@ import android.net.Uri;
 public class MyContentProvider extends ContentProvider {
 
     static final String PROVIDER_NAME = "com.example.dietmannagentapp.MyContentProvider";
-
-    static final String URL = "content://" + PROVIDER_NAME + "/diets";
+    static final String URL = "content://" + PROVIDER_NAME + "/testdiet2"; //(테이블 변경시 고려사항 두번째)
     static final Uri CONTENT_URI = Uri.parse(URL);
     static final String _ID = "_id";
     static final String RESTAURANT_NAME = "restaurant_info";
@@ -20,6 +19,7 @@ public class MyContentProvider extends ContentProvider {
     static final String DATE = "date";
     static final String TIME = "time";
     static final String COST = "cost";
+    static final String CHECK = "checkbox1"; // 추가된 체크박스 컬럼
     public DietDBManager dbManager;
     public MyContentProvider() {
     }
@@ -37,7 +37,7 @@ public class MyContentProvider extends ContentProvider {
     @Override
     public String getType(Uri uri) {
         // MIME 유형을 정의하여 반환
-        return "vnd.android.cursor.item/vnd." + PROVIDER_NAME + ".diets";
+        return "vnd.android.cursor.item/vnd." + PROVIDER_NAME + "testdiet2";//(테이블 변경시 고려사항 세번째)
     }
 
     @Override
@@ -54,7 +54,6 @@ public class MyContentProvider extends ContentProvider {
         // 데이터 추가 실패 시 RuntimeException을 발생시킴
         throw new RuntimeException("데이터 추가 실패");
     }
-
     @Override
     public boolean onCreate() {
         dbManager = DietDBManager.getInstance(getContext());
