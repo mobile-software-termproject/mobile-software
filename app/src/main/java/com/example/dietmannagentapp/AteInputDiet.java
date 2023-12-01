@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -33,6 +34,7 @@ public class AteInputDiet extends AppCompatActivity {
     private static final int REQUEST_CODE_TIME = 1000;
     private static final int REQUEST_CODE_CALENDAR = 100;
     private static final int PICK_IMAGE_REQUEST = 1;
+    private boolean isCheckBoxChecked=false; // 체크박스 값 저장 변수
     private Uri selectedImageUri; // 저장할 이미지의 URI
 
     @Override
@@ -82,6 +84,14 @@ public class AteInputDiet extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent5 = new Intent(AteInputDiet.this, AteShowing.class);
                 startActivity(intent5);
+            }
+        });
+        // 체크 박스 값 확인
+        CheckBox checkbox = findViewById(R.id.checkbox1);
+        checkbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isCheckBoxChecked = ((CheckBox) v).isChecked();
             }
         });
     }
@@ -154,6 +164,8 @@ public class AteInputDiet extends AppCompatActivity {
             EditText editTextTime = findViewById(R.id.TextViewTime);
             EditText costEditText = findViewById(R.id.cost);
 
+            //필드의 형식이 올바른지 아닌지 확인하는 함수들(1~4)
+            //1
             if (restaurantTextView.getText().toString().isEmpty() ||
                     dietNameEditText.getText().toString().isEmpty() ||
                     dietReviewEditText.getText().toString().isEmpty() ||
@@ -163,17 +175,22 @@ public class AteInputDiet extends AppCompatActivity {
                 Toast.makeText(this, "모든 필드를 입력해주세요!", Toast.LENGTH_SHORT).show();
                 return;
             }
-
+            //2
+            if (!isValidCost(costEditText.getText().toString())) {
+                Toast.makeText(this, "숫자로만 입력 해주세요!\n (예: 5000)", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            //3
             if (!isValidDate(editTextDate.getText().toString())) {
                 Toast.makeText(this, "올바른 날짜 형식을 입력해주세요!\n (예: yyyy-MM-dd)", Toast.LENGTH_SHORT).show();
                 return;
             }
-
+            //4
             if (!isValidTime(editTextTime.getText().toString())) {
                 Toast.makeText(this, "올바른 시간 형식을 입력해주세요!\n (예: HH시 mm분)", Toast.LENGTH_SHORT).show();
                 return;
             }
-
+            //이미지를 바이트 값으로 대체해서 배열에다 넣음.
             byte[] imageData = convertImageToByteArray(selectedImageUri);
 
             ContentValues addValues = new ContentValues();
@@ -184,6 +201,8 @@ public class AteInputDiet extends AppCompatActivity {
             addValues.put(MyContentProvider.TIME, editTextTime.getText().toString());
             addValues.put(MyContentProvider.COST, costEditText.getText().toString());
             addValues.put(MyContentProvider.DIET_PICTURE, imageData);
+            addValues.put(MyContentProvider.CHECK,isCheckBoxChecked ? 1 : 0);
+
 
             Uri insertedUri = getContentResolver().insert(MyContentProvider.CONTENT_URI, addValues);
 
@@ -214,7 +233,7 @@ public class AteInputDiet extends AppCompatActivity {
             throw e;
         }
     }
-
+    //날짜 형식이 올바른지 확인용 함수
     private boolean isValidDate(String date) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
@@ -226,7 +245,7 @@ public class AteInputDiet extends AppCompatActivity {
             return false;
         }
     }
-
+    //시간 형식이 올바른지 확인용 함수
     private boolean isValidTime(String time) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("HH시 mm분", Locale.KOREA);
@@ -235,6 +254,15 @@ public class AteInputDiet extends AppCompatActivity {
             return parsedTime != null;
         } catch (ParseException e) {
             e.printStackTrace();
+            return false;
+        }
+    }
+    //비용이 숫자로만 이루어져있는지 확인
+    private boolean isValidCost(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException e) {
             return false;
         }
     }

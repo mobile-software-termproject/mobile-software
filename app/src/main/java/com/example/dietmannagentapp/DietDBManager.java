@@ -5,10 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DietDBManager extends SQLiteOpenHelper {
-    static final String DIET_DB = "Diets.db"; //데베이름
-    static final String DIET_TABLE = "realDiets"; //데베 안의 테이블 이름
+    static final String DIET_DB = "Diets1.db"; //데베이름
+    static final String DIET_TABLE = "testdiet2"; //데베 안의 테이블 이름(테이블 변경시 고려사항 첫번째)
     Context context = null;
 
     private static DietDBManager dbManager = null;
@@ -22,11 +23,13 @@ public class DietDBManager extends SQLiteOpenHelper {
             "diet_review TEXT," +
             "date TEXT," +
             "time TEXT," +
-            "cost REAL);";
+            "cost REAL,"+
+            "checkbox1 INTEGER);";  // checkbox1 컬럼 추가
     public static DietDBManager getInstance(Context context)
     {
+        //새로운 테이블 생성이므로 version을 올려주었음.
         if(dbManager == null) {
-            dbManager = new DietDBManager(context,DIET_DB, null, 2);
+            dbManager = new DietDBManager(context,DIET_DB, null, 5);
         }
         return dbManager;
     }
@@ -43,7 +46,7 @@ public class DietDBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        db.execSQL(CREATE_DB);
+            db.execSQL(CREATE_DB);
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {

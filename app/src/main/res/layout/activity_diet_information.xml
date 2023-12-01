@@ -1,46 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
-
-    <TextView
-        android:id="@+id/DietInformation"
+    android:background="#232323">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="8dp"
-        android:text="Diet Information"
-        android:textSize="30sp" />
-
+        android:orientation="horizontal">
+        <TextView
+        android:id="@+id/bingonggan"
+        android:layout_width="30dp"
+            android:background="#D50000"
+        android:layout_height="match_parent"/>
+        <TextView
+            android:id="@+id/DietInformation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="@color/white"
+            android:text="Diet Detail Information"
+            android:background="#D50000"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/dietpictureName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:text="  Diet Picture"
+        android:textSize="20sp" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
         android:layout_centerHorizontal="true"
         android:src="@mipmap/ic_launcher_round" />
 
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2B2B2B"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:weightSum="4"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
-        android:orientation="horizontal"
-        android:layout_marginBottom="15dp">
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/restaurantTextName"
-            android:layout_width="0dp"
+            android:layout_width="12dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+
             android:layout_toLeftOf="@+id/restaurantTextView"
             android:layout_weight="1"
-            android:shadowColor="#FF80AB"
             android:text="Restaurant: "
-            android:textSize="18sp" />
+            android:textColor="@color/white"
+            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/restaurantTextView"
@@ -48,51 +75,60 @@
             android:layout_weight="3"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView"
-            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:text="RestaurantView"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
     </LinearLayout>
-
     <LinearLayout
-        android:layout_width="380dp"
-        android:weightSum="4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
         android:orientation="horizontal"
-        android:layout_marginBottom="15dp">
+        android:weightSum="4">
+
         <TextView
             android:id="@+id/dietNameTextName"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="12dp"
             android:layout_height="wrap_content"
-            android:text="Diet Name: "
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="1"
+            android:text="Diet Name: "
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/dietNameTextView"
             android:layout_width="0dp"
-            android:layout_weight="3"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_weight="3"
             android:text="Diet NameView"
+            android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:weightSum="4"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="15dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
         <TextView
             android:id="@+id/dateTextName"
-            android:layout_width="0dp"
+            android:layout_width="12dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Date: "
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -102,24 +138,29 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="DateTextView"
+            android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:weightSum="4"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="15dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
         <TextView
             android:id="@+id/timeTextName"
-            android:layout_width="0dp"
+            android:layout_width="12dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Time: "
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -128,25 +169,30 @@
             android:layout_weight="3"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:text="timeTextView"
             android:textSize="18sp" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:weightSum="4"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="15dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
         <TextView
             android:id="@+id/costTextName"
-            android:layout_width="0dp"
+            android:layout_width="12dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Cost: "
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -155,23 +201,28 @@
             android:layout_weight="3"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textColor="@color/white"
             android:text="CostTextView"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:weightSum="4"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="15dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
         <TextView
             android:id="@+id/caloriesTextName"
-            android:layout_width="0dp"
+            android:layout_width="12dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Calories: "
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -181,21 +232,26 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="CaloriesTextView"
+            android:textColor="@color/white"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:weightSum="4"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp">
         <TextView
             android:id="@+id/reviewTextName"
-            android:layout_width="0dp"
+            android:layout_width="13dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Review: "
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <TextView
@@ -205,6 +261,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="ReviewTextView"
+            android:textColor="@color/white"
             android:textSize="18sp" />
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>
