@@ -67,10 +67,7 @@ public class MyContentProvider extends ContentProvider {
                 selectionArgs, null, null, sortOrder);
 
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 9b6722d (Fix : 컬럼 수정)
     @Override
     public int update(Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
