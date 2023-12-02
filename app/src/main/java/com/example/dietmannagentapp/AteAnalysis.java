@@ -16,6 +16,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
@@ -73,7 +74,7 @@ public class AteAnalysis extends AppCompatActivity {
                 } while (cursor.moveToNext());
             }
         }
-        
+
         calorieText.setText(String.valueOf(totalCalories));
 
         return calorieText;
@@ -101,6 +102,10 @@ public class AteAnalysis extends AppCompatActivity {
         for (int i = 0; i < mealTypeCost.length; i++) {
             chartEntry.add(new BarEntry(i, mealTypeCost[i]));
         }
+
+        XAxis xAxis = barChart.getXAxis();
+        xAxis.setDrawLabels(false);
+        xAxis.setEnabled(false);
 
         // Description label 제거
         Description description = new Description();
