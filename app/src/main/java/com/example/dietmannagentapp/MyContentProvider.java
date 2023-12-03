@@ -65,8 +65,8 @@ public class MyContentProvider extends ContentProvider {
                         String[] selectionArgs, String sortOrder) {
         return dbManager.query(projection, selection,
                 selectionArgs, null, null, sortOrder);
-    }
 
+    }
     @Override
     public int update(Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {

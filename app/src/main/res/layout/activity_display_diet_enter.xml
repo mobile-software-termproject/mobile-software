@@ -24,14 +24,31 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-black"
             android:gravity="left"
-            android:text="식사한 식당 선택"
+            android:text="학식 장소 선택"
             android:textColor="@color/white" />
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/locate" />
+        <TextView
+            android:id="@+id/textloacte"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:text="이미지를 선택해주세요" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="280dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="180dp"
@@ -44,13 +61,15 @@
                 android:id="@+id/imageSanglok1"
                 android:layout_width="180dp"
                 android:layout_height="150dp"
-                app:srcCompat="@drawable/sanglok1" />
+                app:srcCompat="@drawable/newsanglok1" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="180dp"
                 android:layout_height="30dp"
                 android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="@string/FirthFloor" />
         </LinearLayout>
 
@@ -65,13 +84,15 @@
                 android:id="@+id/imageSanglok2"
                 android:layout_width="180dp"
                 android:layout_height="150dp"
-                app:srcCompat="@drawable/sanglok2" />
+                app:srcCompat="@drawable/newsanglok2" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="180dp"
                 android:layout_height="30dp"
                 android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="@string/SecondFloor" />
         </LinearLayout>
     </LinearLayout>
@@ -91,13 +112,15 @@
                 android:id="@+id/imageSanglok3"
                 android:layout_width="180dp"
                 android:layout_height="150dp"
-                app:srcCompat="@drawable/sanglok3" />
+                app:srcCompat="@drawable/newsanglok3" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="180dp"
                 android:layout_height="30dp"
                 android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="@string/ThirdFloor" />
         </LinearLayout>
 
@@ -112,13 +135,15 @@
                 android:id="@+id/imageDomitory"
                 android:layout_width="180dp"
                 android:layout_height="150dp"
-                app:srcCompat="@drawable/domitory" />
+                app:srcCompat="@drawable/domitory2" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="180dp"
                 android:layout_height="30dp"
                 android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="@string/DormitoryRestaurant" />
         </LinearLayout>
     </LinearLayout>

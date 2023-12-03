@@ -76,23 +76,20 @@
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        android:weightSum="4">
+        android:layout_marginTop="5dp">
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
             app:srcCompat="@drawable/food" />
 
         <EditText
             android:id="@+id/diet_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_weight="3"
-            android:hint="음식입력"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            android:hint="Diet 입력" />
 
     </LinearLayout>
 
@@ -100,95 +97,83 @@
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        android:weightSum="4">
+        android:layout_marginTop="5dp">
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
             app:srcCompat="@drawable/review" />
 
         <EditText
             android:id="@+id/diet_review"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_weight="3"
-            android:hint="리뷰 작성"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            android:hint="리뷰 작성" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        android:weightSum="4">
+        android:layout_marginTop="5dp">
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="23dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
             app:srcCompat="@drawable/cost" />
 
         <EditText
             android:id="@+id/cost"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_weight="3"
-            android:hint="비용입력(예:5000)"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_weight="1"
+            android:hint="비용입력(예:5000)" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        android:weightSum="4">
+        android:layout_marginTop="5dp">
 
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="38dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
             app:srcCompat="@drawable/timeicon2" />
 
         <EditText
             android:id="@+id/TextViewTime"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:hint="시간 입력(예:23시 59분)"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:hint="시간 입력(예:23시 59분)" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="380dp"
         android:layout_height="60dp"
         android:orientation="horizontal"
-        android:layout_marginTop="5dp"
-        android:weightSum="4">
+        android:layout_marginTop="5dp">
 
         <ImageView
             android:id="@+id/imageView11"
-            android:layout_width="38dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
             app:srcCompat="@drawable/calendaricon2" />
 
         <EditText
             android:id="@+id/TextViewDate"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:focusable="false"
             android:focusableInTouchMode="false"
-            android:hint="날짜 입력(예:2023-11-3)"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:hint="날짜 입력(예:2023-11-3)" />
     </LinearLayout>
 
     <LinearLayout

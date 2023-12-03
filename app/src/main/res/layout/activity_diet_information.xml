@@ -44,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#2B2B2B"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="6dp"
         android:layout_marginRight="6dp"
         android:orientation="vertical">
@@ -79,6 +79,35 @@
             android:text="RestaurantView"
             android:textSize="20sp" />
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="4"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp">
+            <TextView
+                android:id="@+id/checkTextName"
+                android:layout_width="13dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Diet 종류: "
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/checkTextView"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="CheckTextView"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
