@@ -177,7 +177,7 @@ public class AteInputDiet extends AppCompatActivity {
             }
             //2
             if (!isValidCost(costEditText.getText().toString())) {
-                Toast.makeText(this, "숫자로만 입력 해주세요!\n (예: 5000)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "비용은 숫자로만 입력 해주세요!\n (예: 5000)", Toast.LENGTH_SHORT).show();
                 return;
             }
             //3
