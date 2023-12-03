@@ -141,7 +141,8 @@ public class AteCalendarForShowing extends AppCompatActivity {
                 MyContentProvider.DIET_NAME,
                 MyContentProvider.COST,
                 MyContentProvider.TIME,
-                MyContentProvider._ID
+                MyContentProvider._ID,
+                MyContentProvider.CHECK
         };
         int[] toViews2 = {
                 R.id.dietNameTextView,
@@ -157,9 +158,15 @@ public class AteCalendarForShowing extends AppCompatActivity {
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView calorieTextView = view.findViewById(R.id.calorieTextView);
-
+                int calories=0;
                 long dietId = getItemId(position);
-                int calories = calculateCalories(dietId);
+                if(cursor.getInt(4)==1)
+                {
+                    calories = beverageCalories(dietId);
+                }
+                else {
+                    calories = foodCalories(dietId);
+                }
                 calorieTextView.setText(String.valueOf(calories));
 
                 return view;
@@ -177,7 +184,8 @@ public class AteCalendarForShowing extends AppCompatActivity {
                 MyContentProvider.DIET_NAME,
                 MyContentProvider.COST,
                 MyContentProvider.TIME,
-                MyContentProvider._ID
+                MyContentProvider._ID,
+                MyContentProvider.CHECK
         };
         String selection2 = MyContentProvider.DATE + "=?";
         String[] selectionArgs2 = {selectedDate};
@@ -194,7 +202,15 @@ public class AteCalendarForShowing extends AppCompatActivity {
             try {
                 while (cursor.moveToNext()) {
                     long dietId = cursor.getLong(cursor.getColumnIndexOrThrow(MyContentProvider._ID));
-                    totalCalories += calculateCalories(dietId);
+                    //check가 1이면, 즉 음료이면
+                    if(cursor.getInt(4)==1)
+                    {
+                        totalCalories += beverageCalories(dietId);
+                    }
+                    //음식이면 음식 칼로리 계산
+                    else {
+                        totalCalories += foodCalories(dietId);
+                    }
                 }
             } finally {
                 cursor.close();
@@ -204,10 +220,23 @@ public class AteCalendarForShowing extends AppCompatActivity {
         return totalCalories;
     }
 
-    private int calculateCalories(long dietId) {
-        int[] calories = {100, 300, 1200, 600, 400, 900, 800, 500, 0, 700};
-                   //나머지: 0    1    2     3    4    5    6    7   8   9
+    private int beverageCalories(long dietId) {
+        // Use the dietId to get a corresponding calorie value from the array
+        int[] calories = {100, 30, 120, 60, 40, 90, 80, 50, 0, 70};
+        //나머지: 0    1    2     3    4    5    6    7   8   9
+
         int index = (int) (dietId % 10);
+
+        return calories[index];
+    }
+
+    private int foodCalories(long dietId) {
+        // Use the dietId to get a corresponding calorie value from the array
+        int[] calories = {100, 300, 1200, 600, 400, 900, 800, 500, 0, 700};
+        //나머지: 0    1    2     3    4    5    6    7   8   9
+
+        int index = (int) (dietId % 10);
+
         return calories[index];
     }
 }
