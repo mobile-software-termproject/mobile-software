@@ -18,7 +18,7 @@ public class DietDBManager extends SQLiteOpenHelper {
     static final String CREATE_DB = "CREATE TABLE " +
             DIET_TABLE + " (_id INTEGER PRIMARY KEY, "
             + " restaurant_info TEXT," +
-            "diet_picture BLOB," +  // 이미지를 바이너리 데이터로 저장
+            "diet_picture BLOB," +  // 이미지를 바이트 데이터로 저장
             "diet_name TEXT," +
             "diet_review TEXT," +
             "date TEXT," +

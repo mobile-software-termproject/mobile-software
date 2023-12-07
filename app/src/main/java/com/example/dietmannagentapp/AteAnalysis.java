@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class AteAnalysis extends AppCompatActivity {
@@ -45,24 +46,66 @@ public class AteAnalysis extends AppCompatActivity {
     }
 
     private Cursor getAnalyzeCursor() {
-        //현재 날짜에서 30일 이전 날짜 계산
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, -30);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d", Locale.getDefault());
-        String startDate = dateFormat.format(calendar.getTime());
-        String currentDate = dateFormat.format(new Date());
 
-        String[] projection = {"_id","date", "time", "cost","checkbox1"};
-        String selection = "date BETWEEN ? AND ?";
-        String [] selectionArgs = {startDate,currentDate};
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-M-d", Locale.getDefault());
+
+        ArrayList<Long> dateBasedIds = new ArrayList<>();
+        for (int i = 0; i <= 30; i++) {
+            String dateString = dateFormat.format(calendar.getTime());
+            List<Long> dietIds = getDietIdsFromDate(dateString);
+            dateBasedIds.addAll(dietIds);
+            calendar.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        StringBuilder selectionBuilder = new StringBuilder("_id IN (");
+        for (int i = 0; i < dateBasedIds.size(); i++) {
+            selectionBuilder.append(dateBasedIds.get(i));
+            if (i < dateBasedIds.size() - 1) {
+                selectionBuilder.append(",");
+            }
+        }
+        selectionBuilder.append(")");
+
+        String[] projection = {"_id", "date", "time", "cost", "checkbox1"};
 
         return getContentResolver().query(
+                MyContentProvider.CONTENT_URI,
+                projection,
+                selectionBuilder.toString(),
+                null,
+                null
+        );
+    }
+
+    // 날짜에 해당하는 ID를 얻는 메서드
+    private List<Long> getDietIdsFromDate(String date) {
+        List<Long> dietIds = new ArrayList<>();
+        String[] projection = {"_id"};
+        String selection = "date = ?";
+        String[] selectionArgs = {date};
+
+        Cursor cursor = getContentResolver().query(
                 MyContentProvider.CONTENT_URI,
                 projection,
                 selection,
                 selectionArgs,
                 null
         );
+
+        if (cursor != null) {
+            try {
+                while (cursor.moveToNext()) {
+                    long dietId = cursor.getLong(cursor.getColumnIndexOrThrow("_id"));
+                    dietIds.add(dietId);
+                }
+            } finally {
+                cursor.close();
+            }
+        }
+
+        return dietIds;
     }
     //총 칼로리 계산
     private TextView updateTotalCalories(Cursor cursor) {
@@ -176,7 +219,7 @@ public class AteAnalysis extends AppCompatActivity {
     private int beverageCalories(long dietId) {
         // Use the dietId to get a corresponding calorie value from the array
         int[] calories = {100, 30, 120, 60, 40, 90, 80, 50, 0, 70};
-                  //나머지: 0    1   2    3   4   5   6   7  8   9
+        //나머지: 0    1   2    3   4   5   6   7  8   9
         int index = (int) (dietId % 10);
         return calories[index];
     }
@@ -184,7 +227,7 @@ public class AteAnalysis extends AppCompatActivity {
     private int foodCalories(long dietId) {
         // Use the dietId to get a corresponding calorie value from the array
         int[] calories = {100, 300, 1200, 600, 400, 900, 800, 500, 0, 700};
-                  //나머지: 0    1    2     3    4    5    6    7   8   9
+        //나머지: 0    1    2     3    4    5    6    7   8   9
         int index = (int) (dietId % 10);
 
         return calories[index];
