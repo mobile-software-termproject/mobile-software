@@ -94,7 +94,6 @@
         android:layout_width="match_parent"
         android:layout_height="550dp"
         android:layout_marginTop="110dp" >
-
     </ListView>
 
     <LinearLayout
@@ -114,7 +113,14 @@
             android:background="#232323"
             android:onClick="goToAteCalendar"
             app:srcCompat="@drawable/watchingcalendar2" />
-
+        <!-- Add this button in your layout -->
+        <ImageButton
+            android:id="@+id/initDatabaseButton"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:onClick="initDatabase"
+            android:text="Initialize Database"
+            app:srcCompat="@drawable/initiallist" />
         <ImageButton
             android:id="@+id/imageButtonshowing1"
             android:layout_width="150dp"
