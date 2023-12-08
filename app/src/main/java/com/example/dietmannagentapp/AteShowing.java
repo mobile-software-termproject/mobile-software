@@ -21,6 +21,8 @@ import java.io.ByteArrayInputStream;
 
 public class AteShowing extends AppCompatActivity {
     // 어댑터에서 사용할 변수들을 클래스 수준으로 이동
+    private String[] fromColumns = {
+            MyContentProvider.RESTAURANT_NAME,
             MyContentProvider.DIET_NAME,
             MyContentProvider.DATE,
             MyContentProvider.TIME,
@@ -37,6 +39,7 @@ public class AteShowing extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ate_showing);
 
         // 초기화 버튼 찾기
